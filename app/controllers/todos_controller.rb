@@ -2,6 +2,8 @@ class TodosController < ApplicationController
   before_action :set_user
   def index
     @todos=@user.todos
+    @completed_count = @todos.where(is_done: true).count
+    @uncompleted_count = @todos.count-@completed_count
   end
 
   def create

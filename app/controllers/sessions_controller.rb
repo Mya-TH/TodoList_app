@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
       session[:user_id]=@user.id
       redirect_to todos_path
     else 
-      message="Someting went wrong, Check the name and password again"
-      redirect_to login_path, notice: message
+      flash[:alert]="Someting went wrong, Check the name and password again"
+      redirect_to login_path
     end
   end
   def destroy
